@@ -132,6 +132,9 @@ status "Building runtime environment"
 mkdir -p $build_dir/.profile.d
 echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
 
+#Install sass
+gem install sass
+
 # Check and run bower
 (
   if [ -f $build_dir/bower.json ]; then
@@ -147,8 +150,6 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 # Check and run gulp
 (
   if [ -f $build_dir/gulpfile.js ]; then
-    #Install sass
-    gem install sass
     # get the env vars
     if [ -d "$env_dir" ]; then
       status "Exporting config vars to environment"
