@@ -147,6 +147,8 @@ gem install sass
   fi
 )
 
+sass --update ./
+
 # Check and run gulp
 (
   if [ -f $build_dir/gulpfile.js ]; then
